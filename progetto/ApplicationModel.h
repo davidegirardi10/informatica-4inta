@@ -15,7 +15,7 @@ public:
 	ApplicationModel();
 	int getCredito ();
 	void aggiungicredito(float euro);
-	int paga(int i);
+	int paga(int i,bool *x);
 	int getprezzo(int i);
 	string getBevanda(int i);
 

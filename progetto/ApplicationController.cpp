@@ -4,49 +4,59 @@
 #include <cstdio>
 #include <cstdlib>
 
-ApplicationController::ApplicationController(ApplicationView *v):
-	Controller(v)
-{
-	//myModel=(ApplicationModel*)model; // per non dover fare ogni volta il cast per usare il model
-}
+	using namespace std;
+	ApplicationController::ApplicationController(ApplicationView *v):
+    	Controller(v)
+		{
+			//myModel=(ApplicationModel*)model; // per non dover fare ogni volta il cast per usare il model
+		}
 
+	void ApplicationController::logic(){
+		int scelta = 0;
+		float importo = 0.0f;
+		int bevanda_scelta = 0;
+		int risultato =0;
+		bool prova;
+		
+		cin >> scelta;
 
-    void ApplicationController::logic(){
-
-            int scelta=3;
-
-            std::cin >> scelta;//acquisisce l'input da tastiera (in futuro potrebbe farlo l'handleEvent)
-
-            switch(scelta)
-            {
-			case 0: //semplicemente esegue l'istr. successiva nel main (si dovrebbero invocare i distruttori degli oggetti non pi� utili)
+		switch(scelta)
+		{
+			case 0:
 				exit(0);
 				break;
-
-                    //model->loadValue(model->getValue()+1);//incrementa
-			case 1: ((ApplicationModel*)model)->loadValue(((ApplicationModel*)model)->getValue()+1);//incrementa
+				
+				
+			case 1:
+			case 2:
+			case 3:
+			case 4:
+			case 5:
+			case 6:
+			case 7:
+			case 8:
+			case 9:
+				
+				bevanda_scelta = scelta - 1; // Converti 1-9 in 0-8
+				((ApplicationModel*)model)->paga(bevanda_scelta,&prova);
+				cout << "prova "<<prova<<endl;
+				if(prova == false ) {
+					cout << "Credito insufficiente! Premi un tasto per continuare...";
+				}
 				break;
-
-			case 2: ((ApplicationModel*)model)->loadValue(((ApplicationModel*)model)->getValue()-1);//decrementa
+			case 10: 
+				cout << "Inserire importo: ";
+				cin >> importo;
+				((ApplicationModel*)model)->aggiungicredito(importo);
 				break;
-			
-
-			
-			
-			
-			default:((ApplicationModel*)model)->loadValue(((ApplicationModel*)model)->getValue());//non cambia nulla! Si potrebbe segnale un errore dal view
+				
+			default:
+				cout << "Scelta non valida! Premi un tasto per continuare...";
+				
 				break;
-            }
-
-
-
-    }
-	//una sorta di LOOP:loadValue() di model-> notify()->update() di view
-	//												   ->update() di control(questo metodo) ->loadValue() di model -> notify()...
-	/*void ApplicationController::update(){
-		isUptoDate=true;
-	}*/
-
-	//funzione alla quale in futuro potrebbe essere associata la tastiera
-	void MVC::Controller::handleEvent(MVC::Event * e) {;//fai qualcosa
+		}
 	}
+
+void MVC::Controller::handleEvent(MVC::Event * e) {
+    // Implementa se necessario
+}

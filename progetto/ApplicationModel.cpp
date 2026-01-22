@@ -4,7 +4,8 @@
 using namespace std;
 
 	ApplicationModel::ApplicationModel():
-	mValue(0),Model()
+		
+	Model()
 	{
 		credito=0;
 		 
@@ -38,13 +39,20 @@ using namespace std;
 		credito +=euro;
 		notify();
 	};
-	int ApplicationModel::paga(int i){
-		if(credito >= costo[i]){
+	int ApplicationModel::paga(int i, bool *x){
+//		if(credito >= costo[i]){
 			credito -= costo[i];
+			*x=true;
+						cout << "DEBUG CREDITO= "<<credito<<" !!!!!!!"<<costo[i]<<endl;
+
+			notify();
+/*		}
+		else {
+			*x=false;
 			notify();
 		}
-		else
-		return -1;
+		
+*/		
 
 	};
 	int ApplicationModel::getprezzo(int i){

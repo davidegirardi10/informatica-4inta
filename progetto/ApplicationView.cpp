@@ -2,6 +2,7 @@
 #include "ApplicationView.h"
 #include <iostream>
 #include <cstdlib>
+
 ApplicationView::ApplicationView(ApplicationModel *m):
 	View(m)
 {}
@@ -9,26 +10,28 @@ ApplicationView::ApplicationView(ApplicationModel *m):
 //overriding della funzione MVC::View::draw()
 void ApplicationView::draw()
 {
-	system("cls");
-	std::cout << std::endl;
+	//system("cls");  
+    cout << endl;
+ 
+    
 
-/*	std::cout << "  ---------------------------------------------------- " << std::endl;
-	std::cout << "  ID VIEW:"<< this << std::endl;
-	std::cout << "  ---------------------------------------------------- " << std::endl;
+/*	cout << "  ---------------------------------------------------- " << endl;
+	cout << "  ID VIEW:"<< this << endl;
+	cout << "  ---------------------------------------------------- " << endl;
 */
-	std::cout << "  ---------------------------------------------------- " << std::endl;
-	std::cout << " |                  Macchina del caffe                |" <<std::endl;
-	std::cout << "  ---------------------------------------------------- " << std::endl;
-	std::cout << " | CREDITO: " << credito <<"euro"<<"                  |" <<std::endl;
-	std::cout << "  ---------------------------------------------------- " << std::endl;
-	std::cout << " |     [1]Espresso     [2]Lungo    [3]Macchiato       |"<<std::endl;
-	std::cout << " |     [4]Cappuccino   [5]Orzo     [6]Ginseng         | "<<std::endl;
-	std::cout << " |     [7]Cioccolato   [8]Latte    [9]The limone      |"<<std::endl;
-	std::cout << " |                     [10]Inserire soldi             |"<<std::endl;
-	std::cout << " |                     [0]Esci                        |"<<std::endl;
-	std::cout << "  ---------------------------------------------------- " << std::endl
+	cout << "  ---------------------------------------------------- " << endl;
+	cout << " |                  Macchina del caffe                |" <<endl;
+	cout << "  ---------------------------------------------------- " << endl;
+	cout << " | CREDITO: " << ((ApplicationModel*) model)->getCredito() <<"euro"<<"|" <<endl;
+	cout << "  ---------------------------------------------------- " << endl;
+	cout << " |     [1]Espresso     [2]Lungo    [3]Macchiato       |"<<endl;
+	cout << " |     [4]Cappuccino   [5]Orzo     [6]Ginseng         | "<<endl;
+	cout << " |     [7]Cioccolato   [8]Latte    [9]The limone      |"<<endl;
+	cout << " |                     [10]Inserire soldi             |"<<endl;
+	cout << " |                     [0]Esci                        |"<<endl;
+	cout << "  ---------------------------------------------------- " << endl;
 
-	std::cout << " | INSERIRE il comando scelto: ";
+	cout << " | INSERIRE il comando scelto: ";
 
 
 }
